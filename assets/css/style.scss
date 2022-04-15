@@ -1,0 +1,204 @@
+//SCSS Variables
+$color-primary: #369cf5;
+$color-bg--light: #e7f1fb;
+$color-bg--dark: #27292b;
+$color-light: #ffffff;
+$color-dark: #313840;
+
+//SCSS Mixin
+@mixin dark-mode {
+    @at-root .theme-switch:checked ~ .page-wrapper &{
+        @content;
+    }
+}
+
+/* Reset Style */
+*{
+    margin: 0;
+    padding: 0;
+		outline: 0;
+    box-sizing: border-box;
+		-webkit-tap-highlight-color: transparent;
+}
+html{
+	font-size: 8px;
+	font-size: clamp(7px, 1.1vw, 10px);
+}
+body{
+    font-family: 'Poppins', sans-serif;
+		font-size: 1.6rem;
+}
+a,
+a:hover,
+a:active {
+	text-decoration: none;
+}
+ul,
+ol {
+	list-style-type: none;
+}
+
+img{
+	display: block;
+	max-width: 100%;
+}
+
+.theme-switch{
+	position: absolute;
+	user-select: none;
+	pointer-events: none;
+	opacity: 0;
+}
+
+.page-wrapper{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 15px;
+	min-height: 100vh;
+	background-color: $color-bg--light;
+	@at-root .theme-switch:checked ~ &{
+		background-color: $color-bg--dark;
+	}
+}
+
+.theme-toggler{
+	--btn-width: 4em;
+	--btn-height: 2.5em;
+	cursor: pointer;
+	width: var(--btn-width);
+	height: var(--btn-height);
+	border-radius: 50em;
+	margin-bottom: 2em;
+	overflow: hidden;
+	border: 0.5em solid $color-dark;
+	background-color: $color-dark;
+	@include dark-mode{
+		background-color: $color-light;
+		border-color: $color-light;
+	}
+	&__indicator{
+		position: relative;
+		display: inline-block;
+		height: calc(var(--btn-height) - (0.5em * 2));
+		aspect-ratio: 1;
+		border-radius: 50%;
+		transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+		background-color: $color-light;
+		transform: translateX(calc(var(--btn-width) - var(--btn-height)));
+		@include dark-mode{
+			background-color: $color-dark;
+			transform: translateX(0);
+		}
+		&::before{
+			content: "";
+			position: absolute;
+			inset: 0;
+			border-radius: inherit;
+			background-color: $color-light;
+			transform: translateX(55%) scale(0);
+			@include dark-mode{
+				transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+				transform: translateX(55%) scale(1);
+			}
+		}
+	}
+}
+
+.card{
+	border-radius: 1em;
+	padding: 5em 4em 2em;
+	text-align: center;
+	background-color: $color-light;
+	@include dark-mode{
+		background-color: $color-dark;
+	}
+	&__avatar{
+		position: relative;
+		display: inline-block;
+		width: 9em;
+		aspect-ratio: 1;
+		border-radius: 50%;
+		&::before{
+			content: "";
+			position: absolute;
+			inset: -5px;
+			border-radius: inherit;
+			border: 1px dashed $color-primary;
+			@include dark-mode{
+				border-color: $color-light;
+			}
+			animation: rotate 50s linear infinite;
+		}
+		&__image{
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			border-radius: inherit;
+			overflow: hidden;
+		}
+	}
+	&__title{
+		color: $color-primary;
+	}
+	&__sub-title{
+		font-weight: 400;
+		color: $color-dark;
+		@include dark-mode{
+			color: $color-light;
+		}
+	}
+	&__social-list{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5em;
+		margin-top: 1.5em;
+		&__item,
+		&__link
+		{
+			display: inline-flex;
+		}
+		&__link{
+			align-items: center;
+			justify-content: center;
+			font-size: 1.8rem;
+			width: 2.5em;
+			aspect-ratio: 1;
+			border-radius: 50%;
+			background-color: rgba($color-primary, 0.1);
+			color: $color-primary;
+			
+			&:active{
+				animation: pulse 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+			}
+
+            @media only screen and (min-width: 668px) {
+                &:hover,
+                &:focus-visible
+                {
+                    animation: pulse 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+                }
+            }
+		}
+	}
+}
+
+@keyframes pulse{
+	0%{
+		box-shadow: 0 0 0 0 rgba($color-primary, 0.08);
+	}
+	100%{
+		box-shadow: 0 0 0 2em transparent;
+	}
+}
+
+@keyframes rotate{
+	0%{
+		transform: rotate(0);
+	}
+	100%{
+		transform: rotate(360deg);
+	}
+}

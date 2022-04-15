@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Developer Zahid | Zahid Hasan Munna">
+    <meta name="description" content="My name is Zahid Hasan Munna. I'm a Front-End Web Developer.">
+    <title>CSS Theme Toggler</title>
+    <!-- Favicon Link -->
+    <link rel="icon" type="image/x-icon" href="./assets/images/favicons/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="512x512" href="./assets/images/favicons/android-chrome-512x512.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="./assets/images/favicons/android-chrome-192x192.png" />
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="./assets/images/favicons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicons/favicon-16x16.png" />
+    <!-- All CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"> 
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <input type="checkbox" class="theme-switch" id="theme-switch">
+    <main class="page-wrapper">
+        <!-- Theme Toggler Button -->
+        <label role="button" for="theme-switch" class="theme-toggler">
+            <span class="theme-toggler__indicator"></span>
+        </label>
+        <!-- Card Section -->
+        <artical class="card">
+            <div class="card__avatar">
+                <img src="./assets/images/user.jpg" alt="avatar image" class="card__avatar__image">
+            </div>
+            <h2 class="card__title">Developer Zahid</h2>
+            <h3 class="card__sub-title">Web Designer</h3>
+            <ul class="card__social-list" data-trademark="Developer-Zahid">
+                <li class="card__social-list__item">
+                    <a href="#!" class="card__social-list__link">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                </li>
+                <li class="card__social-list__item">
+                    <a href="https://www.facebook.com/coderexpertzahid/" target="_blank" class="card__social-list__link">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                </li>
+                <li class="card__social-list__item">
+                    <a href="#!" class="card__social-list__link">
+                        <i class="fa-brands fa-twitter"></i>
+                    </a>
+                </li>
+            </ul>
+        </artical>
+    </main>
+</body>
+</html>
